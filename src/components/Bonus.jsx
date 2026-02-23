@@ -1,39 +1,50 @@
-import { Box, Container, Typography, Grid } from "@mui/material";
+import { Box, Container, Typography, Grid, Paper } from "@mui/material";
 
 const Bonus = () => {
   const bonusList = [
     {
-      title: "INSPIRE.SE CLUB",
+      title: "Inspire.se Club",
       val: "VALOR INESTIMÁVEL",
       desc: "Acesso exclusivo ao núcleo de membros fundadores com encontros mensais presenciais para networking estratégico.",
     },
     {
-      title: "NETWORK DE FUNDADORES",
+      title: "Network de Fundadores",
       val: "R$ 2.500",
       desc: "Conexão direta com o ecossistema de empresários, mentores e especialistas do Sistema Inspire.se.",
     },
     {
-      title: "CURADORIA DE POSICIONAMENTO",
+      title: "Curadoria de Posicionamento",
       val: "R$ 1.200",
       desc: "Orientação sobre o cenário e enquadramento ideal para transmitir maturidade e segurança no seu nicho.",
     },
   ];
 
   return (
-    <Box sx={{ py: 10, backgroundColor: "transparent" }}>
+    <Box sx={{ py: 12, backgroundColor: "transparent" }}>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography
             variant="overline"
-            sx={{ color: "#FFD700", fontWeight: "bold", letterSpacing: 2 }}
+            sx={{
+              color: "#C5A47E",
+              fontFamily: '"Poppins", sans-serif',
+              fontWeight: 600,
+              letterSpacing: 3,
+            }}
           >
-            BENEFÍCIOS EXCLUSIVOS
+            Benefícios Exclusivos
           </Typography>
           <Typography
             variant="h3"
-            sx={{ color: "#fff", fontWeight: 900, mt: 1 }}
+            sx={{
+              color: "#fff",
+              fontFamily: '"IvyPresto", serif',
+              fontStyle: "italic",
+              fontWeight: 600,
+              mt: 1,
+            }}
           >
-            PRESENTES PARA <span style={{ color: "#FFD700" }}>FUNDADORES</span>
+            Presentes para <span style={{ color: "#C5A47E" }}>Fundadores</span>
           </Typography>
         </Box>
 
@@ -57,34 +68,47 @@ const Bonus = () => {
                 flexBasis: { md: "33.33%" },
               }}
             >
-              <Box
+              <Paper
+                elevation={0}
                 sx={{
                   p: 4,
-                  bgcolor: "rgba(255, 215, 0, 0.02)",
-                  border: "1px dashed #FFD700",
-                  borderRadius: 4,
+                  bgcolor: "rgba(255, 255, 255, 0.02)",
+                  border: "1px solid rgba(197, 164, 126, 0.3)", // Borda fina champagne
+                  borderRadius: 0, // Geométrico conforme manual
                   textAlign: "center",
                   width: "100%",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  transition: "0.3s",
+                  transition: "0.4s ease",
                   "&:hover": {
-                    bgcolor: "rgba(255, 215, 0, 0.08)",
-                    transform: "translateY(-5px)",
+                    bgcolor: "rgba(197, 164, 126, 0.05)",
+                    borderColor: "#C5A47E",
+                    transform: "translateY(-8px)",
                   },
                 }}
               >
                 <Box>
                   <Typography
                     variant="h6"
-                    sx={{ color: "#FFD700", fontWeight: "bold", mb: 2 }}
+                    sx={{
+                      color: "#C5A47E",
+                      fontFamily: '"Poppins", sans-serif',
+                      fontWeight: 700,
+                      mb: 2,
+                      letterSpacing: 1,
+                    }}
                   >
-                    {b.title}
+                    {b.title.toUpperCase()}
                   </Typography>
                   <Typography
                     variant="body2"
-                    sx={{ color: "#aaa", mb: 3, lineHeight: 1.6 }}
+                    sx={{
+                      color: "rgba(255,255,255,0.6)",
+                      fontFamily: '"Poppins", sans-serif',
+                      mb: 3,
+                      lineHeight: 1.8,
+                    }}
                   >
                     {b.desc}
                   </Typography>
@@ -94,22 +118,28 @@ const Bonus = () => {
                   <Typography
                     variant="caption"
                     sx={{
-                      color: "#fff",
+                      color: "rgba(255,255,255,0.4)",
                       textDecoration: "line-through",
-                      opacity: 0.5,
                       display: "block",
+                      fontFamily: '"Poppins", sans-serif',
+                      mb: 0.5,
                     }}
                   >
                     {b.val}
                   </Typography>
                   <Typography
                     variant="h6"
-                    sx={{ color: "#00ff00", fontWeight: "bold" }}
+                    sx={{
+                      color: "#C5A47E", // Trocamos o verde pelo dourado para manter a sobriedade de luxo
+                      fontWeight: 700,
+                      fontFamily: '"Poppins", sans-serif',
+                      letterSpacing: 2,
+                    }}
                   >
                     GRÁTIS
                   </Typography>
                 </Box>
-              </Box>
+              </Paper>
             </Grid>
           ))}
         </Grid>

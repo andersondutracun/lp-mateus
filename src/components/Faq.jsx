@@ -40,18 +40,29 @@ const Faq = () => {
   return (
     <Box sx={{ width: "100%", py: 12, backgroundColor: "transparent" }}>
       <Container maxWidth="md">
-        <Box sx={{ textAlign: "center", mb: 6 }}>
+        <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography
             variant="overline"
-            sx={{ color: "#FFD700", fontWeight: "bold", letterSpacing: 2 }}
+            sx={{
+              color: "#C5A47E",
+              fontFamily: '"Poppins", sans-serif',
+              fontWeight: 600,
+              letterSpacing: 3,
+            }}
           >
-            DÚVIDAS FREQUENTES
+            Dúvidas Frequentes
           </Typography>
           <Typography
             variant="h3"
-            sx={{ color: "#fff", fontWeight: 900, mt: 1 }}
+            sx={{
+              color: "#fff",
+              fontFamily: '"IvyPresto", serif',
+              fontStyle: "italic", // Identidade Inspire.se
+              fontWeight: 600,
+              mt: 1,
+            }}
           >
-            PERGUNTAS <span style={{ color: "#FFD700" }}>COMUNS</span>
+            Perguntas <span style={{ color: "#C5A47E" }}>Comuns</span>
           </Typography>
         </Box>
 
@@ -59,33 +70,50 @@ const Faq = () => {
           <Accordion
             key={index}
             sx={{
-              backgroundColor: "rgba(20, 20, 20, 0.8)",
+              backgroundColor: "rgba(255, 255, 255, 0.02)",
               color: "#fff",
               mb: 2,
-              border: "1px solid rgba(255, 215, 0, 0.1)",
-              borderRadius: "8px !important",
+              border: "1px solid rgba(197, 164, 126, 0.1)",
+              borderRadius: "0 !important", // Geométrico conforme manual
+              boxShadow: "none",
               "&:before": { display: "none" },
               "&.Mui-expanded": {
-                border: "1px solid #FFD700",
+                border: "1px solid #C5A47E",
+                backgroundColor: "rgba(197, 164, 126, 0.03)",
               },
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: "#FFD700" }} />}
-              sx={{ py: 1 }}
+              expandIcon={<ExpandMoreIcon sx={{ color: "#C5A47E" }} />}
+              sx={{ py: 1.5 }}
             >
-              <Typography sx={{ fontWeight: "bold", fontSize: "1.1rem" }}>
+              <Typography
+                sx={{
+                  fontFamily: '"Poppins", sans-serif',
+                  fontWeight: 600,
+                  fontSize: "1rem",
+                  letterSpacing: "0.5px",
+                }}
+              >
                 {item.pergunta}
               </Typography>
             </AccordionSummary>
             <AccordionDetails
               sx={{
-                borderTop: "1px solid rgba(255, 215, 0, 0.1)",
-                color: "#aaa",
-                py: 3,
+                borderTop: "1px solid rgba(197, 164, 126, 0.1)",
+                color: "rgba(255, 255, 255, 0.6)",
+                py: 4,
               }}
             >
-              <Typography sx={{ lineHeight: 1.8 }}>{item.resposta}</Typography>
+              <Typography
+                sx={{
+                  fontFamily: '"Poppins", sans-serif',
+                  lineHeight: 1.8,
+                  fontSize: "0.95rem",
+                }}
+              >
+                {item.resposta}
+              </Typography>
             </AccordionDetails>
           </Accordion>
         ))}

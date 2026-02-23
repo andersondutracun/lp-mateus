@@ -1,51 +1,91 @@
 import { Box, Container, Grid, Typography, Stack } from "@mui/material";
-// Aqui você pode usar uma foto do estúdio ou uma imagem que passe "tecnologia e sofisticação"
 import imgEstudio from "../assets/mateus.jpg";
 
 const Mentor = () => {
   return (
-    <Box sx={{ py: 15, backgroundColor: "transparent" }}>
+    <Box sx={{ py: { xs: 10, md: 15 }, backgroundColor: "transparent" }}>
       <Container maxWidth="lg">
         <Grid container spacing={8} alignItems="center">
+          {/* LADO DA IMAGEM COM MOLDURA GEOMÉTRICA (Conforme Manual) */}
           <Grid item xs={12} md={6}>
-            <Box
-              component="img"
-              src={imgEstudio}
-              alt="Estúdio Inspire.se"
-              sx={{
-                width: "100%",
-                borderRadius: 4,
-                boxShadow: "0px 10px 30px rgba(255, 215, 0, 0.1)",
-                border: "1px solid rgba(255, 215, 0, 0.2)",
-              }}
-            />
+            <Box sx={{ position: "relative" }}>
+              {/* Moldura decorativa atrás da imagem */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: -20,
+                  left: -20,
+                  width: "100%",
+                  height: "100%",
+                  border: "1px solid rgba(197, 164, 126, 0.3)",
+                  zIndex: 0,
+                  display: { xs: "none", md: "block" },
+                }}
+              />
+
+              <Box
+                component="img"
+                src={imgEstudio}
+                alt="Estúdio Inspire.se"
+                sx={{
+                  width: "100%",
+                  borderRadius: 0, // Formas retas e modernas do manual
+                  filter: "grayscale(20%)", // Toque de sobriedade
+                  position: "relative",
+                  zIndex: 1,
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
+              />
+            </Box>
           </Grid>
+
+          {/* LADO DO CONTEÚDO TEXTUAL */}
           <Grid item xs={12} md={6}>
             <Typography
               variant="overline"
-              sx={{ color: "#FFD700", fontWeight: "bold", letterSpacing: 2 }}
+              sx={{
+                color: "#C5A47E",
+                fontFamily: '"Poppins", sans-serif',
+                fontWeight: 600,
+                letterSpacing: 2,
+              }}
             >
               POSICIONAMENTO DE ALTO PADRÃO
             </Typography>
+
             <Typography
               variant="h3"
-              sx={{ color: "#fff", fontWeight: 900, mb: 3, lineHeight: 1.2 }}
+              sx={{
+                color: "#fff",
+                fontFamily: '"IvyPresto", serif',
+                fontStyle: "italic", // Obrigatório pelo manual para títulos
+                fontWeight: 600,
+                fontSize: { xs: "2.2rem", md: "3rem" },
+                mb: 3,
+                lineHeight: 1.2,
+              }}
             >
-              MUITO ALÉM DE UM <br />
-              <span style={{ color: "#FFD700" }}>ESPAÇO DE GRAVAÇÃO</span>
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ color: "#aaa", lineHeight: 1.8, mb: 4, fontSize: "1.1rem" }}
-            >
-              O Estúdio Inspire.se entrega qualidade compatível com quem deseja
-              transmitir
-              <strong> maturidade e segurança</strong>. Com estrutura técnica
-              profissional e captação multicâmera, transformamos sua presença em
-              um ativo de mercado.
+              Muito além de um <br />
+              <span style={{ color: "#C5A47E" }}>espaço de gravação</span>
             </Typography>
 
-            <Stack spacing={3}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "rgba(255,255,255,0.7)",
+                fontFamily: '"Poppins", sans-serif',
+                lineHeight: 1.8,
+                mb: 4,
+                fontSize: "1.05rem",
+              }}
+            >
+              O Estúdio Inspire.se entrega qualidade compatível com quem deseja
+              transmitir <strong>maturidade e segurança</strong>. Com estrutura
+              técnica profissional e captação multicâmera, transformamos sua
+              presença em um ativo de mercado.
+            </Typography>
+
+            <Stack spacing={2.5}>
               {[
                 "Cenário Clean e Institucional",
                 "Captação Multicâmera Profissional",
@@ -55,15 +95,23 @@ const Mentor = () => {
                   key={item}
                   sx={{ display: "flex", alignItems: "center", gap: 2 }}
                 >
+                  {/* Marcador quadrado/geométrico conforme manual */}
                   <Box
                     sx={{
-                      width: 8,
-                      height: 8,
-                      bgcolor: "#FFD700",
-                      borderRadius: "50%",
+                      width: 6,
+                      height: 6,
+                      bgcolor: "#C5A47E",
+                      transform: "rotate(45deg)", // Losango para ser mais moderno
                     }}
                   />
-                  <Typography sx={{ color: "#fff", fontWeight: "500" }}>
+                  <Typography
+                    sx={{
+                      color: "#fff",
+                      fontFamily: '"Poppins", sans-serif',
+                      fontWeight: 500,
+                      fontSize: "0.95rem",
+                    }}
+                  >
                     {item}
                   </Typography>
                 </Box>

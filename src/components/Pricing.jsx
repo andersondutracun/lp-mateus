@@ -12,9 +12,9 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const plans = [
   {
-    title: "PLANO ESSENCIAL",
+    title: "Plano Essencial",
     subheader: "Foco em Posicionamento",
-    price: "Consulte", // Ou o valor por hora de estúdio se preferir
+    price: "Consulte",
     features: [
       "Captação Multicâmera Profissional",
       "Cenário Clean e Institucional",
@@ -26,9 +26,9 @@ const plans = [
     highlight: false,
   },
   {
-    title: "PLANO ELITE",
+    title: "Plano Elite",
     subheader: "Membro Fundador 2026",
-    price: "12x R$ 197", // Valor exemplo - ajuste conforme sua estratégia
+    price: "12x R$ 197",
     features: [
       "Tudo do Plano Essencial",
       "Acesso ao INSPIRE.SE CLUB",
@@ -50,15 +50,26 @@ const Pricing = () => {
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography
             variant="overline"
-            sx={{ color: "#FFD700", fontWeight: "bold", letterSpacing: 2 }}
+            sx={{
+              color: "#C5A47E",
+              fontFamily: '"Poppins", sans-serif',
+              fontWeight: 600,
+              letterSpacing: 3,
+            }}
           >
             INVESTIMENTO
           </Typography>
           <Typography
             variant="h3"
-            sx={{ color: "#fff", fontWeight: 900, mt: 1 }}
+            sx={{
+              color: "#fff",
+              fontFamily: '"IvyPresto", serif',
+              fontStyle: "italic",
+              fontWeight: 600,
+              mt: 1,
+            }}
           >
-            ESCOLHA SEU <span style={{ color: "#FFD700" }}>PRÓXIMO PASSO</span>
+            Escolha seu <span style={{ color: "#C5A47E" }}>próximo passo</span>
           </Typography>
         </Box>
 
@@ -71,39 +82,44 @@ const Pricing = () => {
           {plans.map((plan, i) => (
             <Grid item xs={12} md={5} key={i} sx={{ display: "flex" }}>
               <Paper
-                elevation={plan.highlight ? 24 : 0}
+                elevation={0}
                 sx={{
                   p: 5,
                   width: "100%",
                   display: "flex",
                   flexDirection: "column",
                   backgroundColor: plan.highlight
-                    ? "rgba(20, 20, 20, 0.95)"
-                    : "rgba(10, 10, 10, 0.6)",
+                    ? "rgba(197, 164, 126, 0.05)" // Leve fundo champagne para o destaque
+                    : "rgba(255, 255, 255, 0.02)",
                   border: plan.highlight
-                    ? "2px solid #FFD700"
-                    : "1px solid rgba(255, 215, 0, 0.2)",
-                  borderRadius: 4,
+                    ? "1px solid #C5A47E"
+                    : "1px solid rgba(255, 255, 255, 0.1)",
+                  borderRadius: 0, // Geométrico conforme manual
                   position: "relative",
-                  backdropFilter: "blur(10px)",
-                  transition: "0.3s",
-                  "&:hover": { transform: "scale(1.02)" },
+                  transition: "0.4s ease",
+                  "&:hover": {
+                    transform: "translateY(-10px)",
+                    backgroundColor: plan.highlight
+                      ? "rgba(197, 164, 126, 0.08)"
+                      : "rgba(255, 255, 255, 0.05)",
+                  },
                 }}
               >
                 {plan.highlight && (
                   <Box
                     sx={{
                       position: "absolute",
-                      top: -15,
+                      top: 0,
                       left: "50%",
                       transform: "translateX(-50%)",
-                      backgroundColor: "#FFD700",
-                      color: "#000",
-                      px: 2,
+                      backgroundColor: "#C5A47E",
+                      color: "#050505",
+                      px: 3,
                       py: 0.5,
-                      borderRadius: 1,
-                      fontWeight: "bold",
-                      fontSize: "0.75rem",
+                      fontWeight: 700,
+                      fontFamily: '"Poppins", sans-serif',
+                      fontSize: "0.7rem",
+                      letterSpacing: 1,
                       whiteSpace: "nowrap",
                     }}
                   >
@@ -112,30 +128,53 @@ const Pricing = () => {
                 )}
 
                 <Typography
-                  variant="h5"
+                  variant="h4"
                   sx={{
-                    color: plan.highlight ? "#FFD700" : "#fff",
-                    fontWeight: 900,
+                    color: plan.highlight ? "#C5A47E" : "#fff",
+                    fontFamily: '"IvyPresto", serif',
+                    fontStyle: "italic",
+                    fontWeight: 600,
+                    mb: 1,
                   }}
                 >
                   {plan.title}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "#888", mb: 3 }}>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    color: "rgba(255,255,255,0.5)",
+                    fontFamily: '"Poppins", sans-serif',
+                    mb: 3,
+                  }}
+                >
                   {plan.subheader}
                 </Typography>
 
-                <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 3 }} />
+                <Divider
+                  sx={{ borderColor: "rgba(197, 164, 126, 0.2)", mb: 4 }}
+                />
 
-                <Stack spacing={2} sx={{ mb: 4, flexGrow: 1 }}>
+                <Stack spacing={2.5} sx={{ mb: 4, flexGrow: 1 }}>
                   {plan.features.map((feature) => (
                     <Box
                       key={feature}
-                      sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
+                      sx={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 1.5,
+                      }}
                     >
                       <CheckCircleIcon
-                        sx={{ color: "#FFD700", fontSize: 18 }}
+                        sx={{ color: "#C5A47E", fontSize: 18, mt: 0.3 }}
                       />
-                      <Typography variant="body2" sx={{ color: "#eee" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: "rgba(255,255,255,0.8)",
+                          fontFamily: '"Poppins", sans-serif',
+                          lineHeight: 1.4,
+                        }}
+                      >
                         {feature}
                       </Typography>
                     </Box>
@@ -146,10 +185,12 @@ const Pricing = () => {
                   <Typography
                     variant="caption"
                     sx={{
-                      color: "#FF4444",
-                      fontWeight: "bold",
-                      mb: 1,
+                      color: "#FF4444", // Mantido para urgência, mas com fonte elegante
+                      fontFamily: '"Poppins", sans-serif',
+                      fontWeight: 700,
+                      mb: 2,
                       textAlign: "center",
+                      letterSpacing: 1,
                     }}
                   >
                     {plan.scarcity}
@@ -157,11 +198,12 @@ const Pricing = () => {
                 )}
 
                 <Typography
-                  variant="h4"
+                  variant="h3"
                   sx={{
                     color: "#fff",
-                    fontWeight: 900,
-                    mb: 3,
+                    fontFamily: '"Poppins", sans-serif',
+                    fontWeight: 700,
+                    mb: 4,
                     textAlign: "center",
                   }}
                 >
@@ -171,18 +213,20 @@ const Pricing = () => {
                 <Button
                   variant={plan.highlight ? "contained" : "outlined"}
                   fullWidth
-                  size="large"
                   sx={{
                     py: 2,
-                    fontWeight: "bold",
-                    backgroundColor: plan.highlight ? "#FFD700" : "transparent",
-                    color: plan.highlight ? "#000" : "#FFD700",
-                    borderColor: "#FFD700",
+                    fontFamily: '"Poppins", sans-serif',
+                    fontWeight: 700,
+                    letterSpacing: 1,
+                    backgroundColor: plan.highlight ? "#C5A47E" : "transparent",
+                    color: plan.highlight ? "#050505" : "#C5A47E",
+                    borderColor: "#C5A47E",
+                    borderRadius: 0,
                     "&:hover": {
                       backgroundColor: plan.highlight
-                        ? "#e6c200"
-                        : "rgba(255, 215, 0, 0.1)",
-                      borderColor: "#FFD700",
+                        ? "#b38f66"
+                        : "rgba(197, 164, 126, 0.1)",
+                      borderColor: "#C5A47E",
                     },
                   }}
                 >

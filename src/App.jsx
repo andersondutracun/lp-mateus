@@ -15,17 +15,49 @@ import Pricing from "./components/Pricing";
 import Mentor from "./components/Mentor";
 import Bonus from "./components/Bonus";
 
-const darkTheme = createTheme({
+const inspireTheme = createTheme({
   palette: {
     mode: "dark",
-    primary: { main: "#FFD700" },
-    background: { default: "#000", paper: "#111" },
+    primary: {
+      main: "#D4AF37", // Ajuste para o tom exato de dourado/bege do manual
+    },
+    background: {
+      default: "#050505",
+      paper: "#0A0A0A",
+    },
+  },
+  typography: {
+    // Definimos a Poppins como padrão para o corpo do site
+    fontFamily: '"Poppins", sans-serif',
+
+    // Customizamos os Títulos para usar a IvyPresto (Identidade Visual)
+    h1: {
+      fontFamily: '"IvyPresto", serif',
+      fontStyle: "italic",
+      fontWeight: 600,
+    },
+    h2: {
+      fontFamily: '"IvyPresto", serif',
+      fontStyle: "italic",
+      fontWeight: 600,
+    },
+    h3: {
+      fontFamily: '"IvyPresto", serif',
+      fontStyle: "italic",
+      fontWeight: 600,
+    },
+    // Botões e Overlines geralmente ficam melhores com a Poppins em negrito
+    button: {
+      fontFamily: '"Poppins", sans-serif',
+      fontWeight: 700,
+      textTransform: "uppercase",
+    },
   },
 });
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={inspireTheme}>
       <CssBaseline />
 
       {/* ESTE BOX É O SEGREDO: Ele segura a imagem para o site inteiro */}
@@ -50,9 +82,7 @@ function App() {
 
         {/* Footer Simples */}
         <Box sx={{ py: 4, textAlign: "center", color: "#555" }}>
-          <Typography variant="caption">
-            © 2026 Academia de Fenômenos
-          </Typography>
+          <Typography variant="caption">© 2026 Inspire.se</Typography>
         </Box>
       </Box>
     </ThemeProvider>
