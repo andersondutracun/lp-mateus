@@ -13,6 +13,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import Logo from "../assets/logo.png";
 
 const navItems = [
   { label: "O Evento", href: "#sobre" },
@@ -34,13 +35,15 @@ const Navbar = () => {
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ fontWeight: "bold", color: "#FFD700", cursor: "pointer" }}
-            >
-              ACADEMIA DE FENÔMENOS
-            </Typography>
+            <Box
+              component="img"
+              src={Logo}
+              sx={{
+                width: "10%",
+                borderRadius: 4,
+                filter: "drop-shadow(0px 10px 30px rgba(255, 215, 0, 0.2))",
+              }}
+            />
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -53,9 +56,9 @@ const Navbar = () => {
                   key={item.label}
                   href={item.href}
                   sx={{
-                    color: "#ffffff", // Força o branco
-                    textTransform: "none", // Tira o excesso de caixa alta se preferir
-                    "&:hover": { color: "#FFD700" }, // Fica dourado ao passar o mouse
+                    color: "#ffffff",
+                    textTransform: "none",
+                    "&:hover": { color: "#FFD700" },
                   }}
                 >
                   {item.label}

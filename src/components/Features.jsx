@@ -1,73 +1,83 @@
-import { Box, Container, Typography, Grid, Paper, Stack } from "@mui/material";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import GroupsIcon from "@mui/icons-material/Groups";
-import StarIcon from "@mui/icons-material/Star";
+import { Box, Container, Grid, Typography, Paper } from "@mui/material";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import VideocamIcon from "@mui/icons-material/Videocam";
+import AutoGraphIcon from "@mui/icons-material/AutoGraph";
+import HubIcon from "@mui/icons-material/Hub";
 
-const content = [
+const features = [
   {
-    title: "O Posicionamento",
-    desc: "Como ser visto como uma autoridade antes mesmo de subir no palco.",
-    icon: <StarIcon sx={{ color: "#FFD700", fontSize: 40 }} />,
+    title: "Ecossistema Integrado",
+    desc: "O Estúdio integra um sistema maior de formação, mentoria e aceleração de negócios.",
+    icon: <HubIcon sx={{ fontSize: 40, color: "#FFD700" }} />,
   },
   {
-    title: "A Metodologia",
-    desc: "O passo a passo para estruturar palestras que vendem e emocionam.",
-    icon: <PlayCircleOutlineIcon sx={{ color: "#FFD700", fontSize: 40 }} />,
+    title: "Presença Estratégica",
+    desc: "Transformamos o seu conhecimento num ativo de mercado através de um posicionamento de alto padrão.",
+    icon: <BusinessCenterIcon sx={{ fontSize: 40, color: "#FFD700" }} />,
   },
   {
-    title: "Networking",
-    desc: "Acesso direto a quem já fatura alto com palestras milionárias.",
-    icon: <GroupsIcon sx={{ color: "#FFD700", fontSize: 40 }} />,
+    title: "Padrão Institucional",
+    desc: "Cenário clean e captação multicâmera para transmitir a segurança que o seu cliente procura.",
+    icon: <VideocamIcon sx={{ fontSize: 40, color: "#FFD700" }} />,
+  },
+  {
+    title: "Crescimento Contínuo",
+    desc: "Ambiente desenhado para líderes que escolheram crescer de forma conectada e estruturada.",
+    icon: <AutoGraphIcon sx={{ fontSize: 40, color: "#FFD700" }} />,
   },
 ];
 
 const Features = () => {
   return (
-    <Box sx={{ py: 10 }}>
-      <Container>
-        <Typography
-          variant="h3"
-          textAlign="center"
-          sx={{ fontWeight: 800, mb: 6, color: "#fff" }}
-        >
-          O QUE VOCÊ VAI <span style={{ color: "#FFD700" }}>DOMINAR</span>
-        </Typography>
+    <Box sx={{ py: 12, backgroundColor: "transparent" }}>
+      <Container maxWidth="lg">
+        <Box sx={{ textAlign: "center", mb: 8 }}>
+          <Typography
+            variant="overline"
+            sx={{ color: "#FFD700", fontWeight: "bold", letterSpacing: 2 }}
+          >
+            DIFERENCIAIS
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{ color: "#fff", fontWeight: 900, mt: 1 }}
+          >
+            PORQUÊ O <span style={{ color: "#FFD700" }}>INSPIRE.SE?</span>
+          </Typography>
+        </Box>
 
         <Grid container spacing={4}>
-          {content.map((item, index) => (
-            <Grid size={{ xs: 12, md: 12 }}>
+          {features.map((f, i) => (
+            <Grid item size={{ xs: 12, sm: 6, md: 3 }} key={i}>
               <Paper
                 elevation={0}
                 sx={{
-                  p: 5,
-                  backgroundColor: "#0a0a0a", // Fundo quase preto
-                  border: "1px solid #333",
-                  borderRadius: 2,
+                  p: 4,
                   height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center", // Centraliza ícone e textos
+                  backgroundColor: "rgba(255, 215, 0, 0.02)",
+                  border: "1px solid rgba(255, 215, 0, 0.1)",
+                  borderRadius: 4,
                   textAlign: "center",
-                  transition: "all 0.4s ease-in-out",
+                  transition: "0.3s",
                   "&:hover": {
+                    backgroundColor: "rgba(255, 215, 0, 0.05)",
                     borderColor: "#FFD700",
                     transform: "translateY(-10px)",
-                    boxShadow: "0px 10px 30px rgba(255, 215, 0, 0.05)",
                   },
                 }}
               >
-                <Box sx={{ mb: 3 }}>{item.icon}</Box>
+                <Box sx={{ mb: 2 }}>{f.icon}</Box>
                 <Typography
-                  variant="h5"
-                  sx={{ fontWeight: "bold", mb: 2, color: "#fff" }}
+                  variant="h6"
+                  sx={{ color: "#fff", fontWeight: "bold", mb: 2 }}
                 >
-                  {item.title}
+                  {f.title}
                 </Typography>
                 <Typography
-                  variant="body1"
-                  sx={{ color: "#888", lineHeight: 1.6 }}
+                  variant="body2"
+                  sx={{ color: "#aaa", lineHeight: 1.6 }}
                 >
-                  {item.desc}
+                  {f.desc}
                 </Typography>
               </Paper>
             </Grid>

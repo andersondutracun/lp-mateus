@@ -1,47 +1,55 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Typography, Grid } from "@mui/material";
 
 const Bonus = () => {
   const bonusList = [
     {
-      title: "Comunidade VIP",
-      val: "R$ 997",
-      desc: "Acesso ao grupo secreto de networking para trocar experiências.",
+      title: "INSPIRE.SE CLUB",
+      val: "VALOR INESTIMÁVEL",
+      desc: "Acesso exclusivo ao núcleo de membros fundadores com encontros mensais presenciais para networking estratégico.",
     },
     {
-      title: "Script de Vendas",
-      val: "R$ 497",
-      desc: "O roteiro exato que usamos nos palcos.",
+      title: "NETWORK DE FUNDADORES",
+      val: "R$ 2.500",
+      desc: "Conexão direta com o ecossistema de empresários, mentores e especialistas do Sistema Inspire.se.",
     },
     {
-      title: "Checklist de Palco",
-      val: "R$ 197",
-      desc: "Tudo o que você precisa conferir antes de subir.",
+      title: "CURADORIA DE POSICIONAMENTO",
+      val: "R$ 1.200",
+      desc: "Orientação sobre o cenário e enquadramento ideal para transmitir maturidade e segurança no seu nicho.",
     },
   ];
 
   return (
     <Box sx={{ py: 10, backgroundColor: "transparent" }}>
       <Container maxWidth="lg">
-        <Typography
-          variant="h4"
-          textAlign="center"
-          sx={{ color: "#fff", fontWeight: 900, mb: 6 }}
-        >
-          SE VOCÊ ENTRAR HOJE, LEVA ESSES{" "}
-          <span style={{ color: "#FFD700" }}>BÔNUS</span>:
-        </Typography>
+        <Box sx={{ textAlign: "center", mb: 8 }}>
+          <Typography
+            variant="overline"
+            sx={{ color: "#FFD700", fontWeight: "bold", letterSpacing: 2 }}
+          >
+            BENEFÍCIOS EXCLUSIVOS
+          </Typography>
+          <Typography
+            variant="h3"
+            sx={{ color: "#fff", fontWeight: 900, mt: 1 }}
+          >
+            PRESENTES PARA <span style={{ color: "#FFD700" }}>FUNDADORES</span>
+          </Typography>
+        </Box>
 
         <Grid
           container
           spacing={3}
-          justifyContent="center" // Centraliza os itens se sobrarem espaços na linha
-          alignItems="stretch" // Garante que a altura também se iguale automaticamente
+          justifyContent="center"
+          alignItems="stretch"
         >
           {bonusList.map((b, i) => (
             <Grid
               item
               key={i}
-              size={{ xs: 12, sm: 6, md: 4 }}
+              xs={12}
+              sm={6}
+              md={4}
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -52,37 +60,44 @@ const Bonus = () => {
               <Box
                 sx={{
                   p: 4,
-                  bgcolor: "rgba(17, 17, 17, 0.8)",
+                  bgcolor: "rgba(255, 215, 0, 0.02)",
                   border: "1px dashed #FFD700",
                   borderRadius: 4,
                   textAlign: "center",
-                  width: "100%", // Ocupa 100% do espaço definido pelo Grid (que travamos acima)
+                  width: "100%",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
                   transition: "0.3s",
-                  "&:hover": { bgcolor: "rgba(255, 215, 0, 0.1)" },
+                  "&:hover": {
+                    bgcolor: "rgba(255, 215, 0, 0.08)",
+                    transform: "translateY(-5px)",
+                  },
                 }}
               >
                 <Box>
                   <Typography
-                    variant="h5"
-                    sx={{ color: "#FFD700", fontWeight: "bold", mb: 1 }}
+                    variant="h6"
+                    sx={{ color: "#FFD700", fontWeight: "bold", mb: 2 }}
                   >
                     {b.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "#aaa", mb: 3 }}>
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "#aaa", mb: 3, lineHeight: 1.6 }}
+                  >
                     {b.desc}
                   </Typography>
                 </Box>
 
-                <Box>
+                <Box sx={{ mt: 2 }}>
                   <Typography
-                    variant="body2"
+                    variant="caption"
                     sx={{
                       color: "#fff",
                       textDecoration: "line-through",
                       opacity: 0.5,
+                      display: "block",
                     }}
                   >
                     {b.val}

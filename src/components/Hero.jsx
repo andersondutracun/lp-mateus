@@ -10,84 +10,58 @@ const Hero = () => {
         textAlign: "center",
       }}
     >
-      <Container maxWidth="md">
-        {/* Tag de Destaque Opcional */}
+      <Container maxWidth="md" sx={{ textAlign: "center", zIndex: 2 }}>
         <Typography
           variant="overline"
-          sx={{ color: "primary.main", fontWeight: "bold", letterSpacing: 2 }}
+          sx={{ color: "#FFD700", fontWeight: "bold", letterSpacing: 3 }}
         >
-          Evento Exclusivo e Gratuito
+          PRIME CLUB FUNDADOR 2026
         </Typography>
 
-        {/* Headline Principal */}
         <Typography
           variant="h2"
           sx={{
             color: "#fff",
             fontWeight: 900,
             fontSize: { xs: "2.5rem", md: "4rem" },
-            mb: 2,
+            mb: 3,
             lineHeight: 1.1,
           }}
         >
-          DOMINE OS <span style={{ color: "#FFD700" }}>PALCOS</span> E
-          TRANSFORME SUA CARREIRA
+          ESTÚDIO <span style={{ color: "#FFD700" }}>INSPIRE.SE</span>
         </Typography>
 
-        {/* Subtítulo */}
         <Typography
           variant="h5"
           sx={{
             color: "#ccc",
-            mb: 4,
+            mb: 5,
             fontWeight: 300,
-            fontSize: { xs: "1.1rem", md: "1.5rem" },
+            fontSize: { xs: "1.1rem", md: "1.4rem" },
+            lineHeight: 1.6,
           }}
         >
-          Aprenda a metodologia exata para se tornar um palestrande memorável e
-          desejado pelo mercado
+          Muito além de um espaço de gravação. Um ecossistema dedicado a
+          <strong> impulsionar negócios </strong> com estratégia e
+          posicionamento de alto padrão.
         </Typography>
 
-        {/* Espaço para vídeo */}
-        <Box
+        <Button
+          variant="contained"
+          size="large"
           sx={{
-            width: "100%",
-            aspectRatio: "16/9",
-            backgroundColor: "#222",
-            borderRadius: 2,
-            mb: 6,
-            border: "2px solid #333",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0px 0px 30px rgba(255, 215, 0, 0.1)",
+            py: 2,
+            px: 5,
+            fontSize: "1.1rem",
+            fontWeight: "bold",
+            backgroundColor: "#FFD700",
+            color: "#000",
+            borderRadius: "4px", // Estilo mais institucional/sério
+            "&:hover": { backgroundColor: "#e6c200" },
           }}
         >
-          <Typography>[ VIDEO ]</Typography>
-        </Box>
-
-        {/* Botão para Chamada para Ação */}
-        <Stack alignItems="center">
-          <Button
-            variant="contained"
-            size="large"
-            sx={{
-              py: 2,
-              px: { xs: 4, md: 8 },
-              fontSize: "1.2rem",
-              fontWeight: "bold",
-              borderRadius: "50px",
-              textTransform: "uppercase",
-              boxShadow: "0px 4px 20px rgba(255, 215, 0, 0.4)",
-              "&:hover": { transform: "scale(1.05)", transition: "0.3s" },
-            }}
-          >
-            Quero garantir minha vaga gatuita
-          </Button>
-          <Typography variant="caption" sx={{ color: "grey.500", mt: 2 }}>
-            ⚡️ Inscrições abertas por tempo limitado
-          </Typography>
-        </Stack>
+          GARANTIR ACESSO FUNDADOR
+        </Button>
       </Container>
     </Box>
   );

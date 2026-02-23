@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Typography, Stack } from "@mui/material";
-import fotoMentor from "../assets/mateus.jpg";
+// Aqui você pode usar uma foto do estúdio ou uma imagem que passe "tecnologia e sofisticação"
+import imgEstudio from "../assets/mateus.jpg";
 
 const Mentor = () => {
   return (
@@ -7,56 +8,65 @@ const Mentor = () => {
       <Container maxWidth="lg">
         <Grid container spacing={8} alignItems="center">
           <Grid item xs={12} md={6}>
-            {/* Espaço para a foto do mentor */}
             <Box
               component="img"
-              src={fotoMentor}
+              src={imgEstudio}
+              alt="Estúdio Inspire.se"
               sx={{
                 width: "100%",
                 borderRadius: 4,
-                filter: "drop-shadow(0px 10px 30px rgba(255, 215, 0, 0.2))",
+                boxShadow: "0px 10px 30px rgba(255, 215, 0, 0.1)",
+                border: "1px solid rgba(255, 215, 0, 0.2)",
               }}
             />
           </Grid>
           <Grid item xs={12} md={6}>
             <Typography
               variant="overline"
-              sx={{ color: "#FFD700", fontWeight: "bold" }}
+              sx={{ color: "#FFD700", fontWeight: "bold", letterSpacing: 2 }}
             >
-              QUEM VAI TE CONDUZIR
+              POSICIONAMENTO DE ALTO PADRÃO
             </Typography>
             <Typography
               variant="h3"
-              sx={{ color: "#fff", fontWeight: 900, mb: 3 }}
+              sx={{ color: "#fff", fontWeight: 900, mb: 3, lineHeight: 1.2 }}
             >
-              MATEUS <span style={{ color: "#FFD700" }}>CARDOSO</span>
+              MUITO ALÉM DE UM <br />
+              <span style={{ color: "#FFD700" }}>ESPAÇO DE GRAVAÇÃO</span>
             </Typography>
             <Typography
               variant="body1"
-              sx={{ color: "#aaa", lineHeight: 1.8, mb: 4 }}
+              sx={{ color: "#aaa", lineHeight: 1.8, mb: 4, fontSize: "1.1rem" }}
             >
-              Especialista em oratória e vendas nos palcos, já treinou mais de X
-              mil pessoas e gerou mais de R$ XX milhões em faturamento através
-              de palestras. Sua missão é transformar profissionais comuns em
-              fenômenos de audiência.
+              O Estúdio Inspire.se entrega qualidade compatível com quem deseja
+              transmitir
+              <strong> maturidade e segurança</strong>. Com estrutura técnica
+              profissional e captação multicâmera, transformamos sua presença em
+              um ativo de mercado.
             </Typography>
-            <Stack spacing={2}>
+
+            <Stack spacing={3}>
               {[
-                "+10 anos de experiência",
-                "Criador do método X",
-                "Palestrante Internacional",
+                "Cenário Clean e Institucional",
+                "Captação Multicâmera Profissional",
+                "Padrão Elevado de Áudio e Imagem",
               ].map((item) => (
-                <Typography
+                <Box
                   key={item}
-                  sx={{
-                    color: "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
+                  sx={{ display: "flex", alignItems: "center", gap: 2 }}
                 >
-                  <span style={{ color: "#FFD700" }}>✓</span> {item}
-                </Typography>
+                  <Box
+                    sx={{
+                      width: 8,
+                      height: 8,
+                      bgcolor: "#FFD700",
+                      borderRadius: "50%",
+                    }}
+                  />
+                  <Typography sx={{ color: "#fff", fontWeight: "500" }}>
+                    {item}
+                  </Typography>
+                </Box>
               ))}
             </Stack>
           </Grid>
