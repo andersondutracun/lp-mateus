@@ -25,12 +25,11 @@ const Navbar = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  // Estilo do Menu Lateral Mobile
   const drawer = (
     <Box
       sx={{
         height: "100%",
-        backgroundColor: "#050505", // Fundo sóbrio do manual
+        backgroundColor: "#050505",
         color: "#fff",
         p: 3,
       }}
@@ -64,10 +63,23 @@ const Navbar = () => {
         variant="contained"
         sx={{
           mt: 4,
-          bgcolor: "#FFD700",
-          color: "#000",
-          fontWeight: "bold",
+          background:
+            "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)",
+          color: "#050505",
+          fontWeight: 700,
+          fontFamily: '"Poppins", sans-serif',
+          letterSpacing: "1px",
           borderRadius: 0,
+          py: 2,
+          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.3)",
+          transition: "all 0.3s ease",
+          border: "none",
+          "&:hover": {
+            background:
+              "linear-gradient(135deg, #D6B68F 0%, #F5E6CC 45%, #D6B68F 100%)",
+            transform: "translateY(-2px)",
+            boxShadow: "0 6px 20px rgba(197, 164, 126, 0.3)",
+          },
         }}
       >
         SOU FUNDADOR
@@ -87,7 +99,6 @@ const Navbar = () => {
     >
       <Container maxWidth="lg">
         <Toolbar sx={{ justifyContent: "space-between", px: "0 !important" }}>
-          {/* LOGO */}
           <Typography
             variant="h6"
             sx={{
@@ -100,7 +111,6 @@ const Navbar = () => {
             Inspire.se
           </Typography>
 
-          {/* LINKS DESKTOP */}
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4 }}>
             {navItems.map((item) => (
               <Button
@@ -120,37 +130,64 @@ const Navbar = () => {
             ))}
           </Box>
 
-          {/* BOTÃO CTA E ÍCONE MENU */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Button
               variant="outlined"
               sx={{
-                display: { xs: "none", sm: "block" }, // Esconde o botão longo em celulares muito pequenos
-                borderColor: "#FFD700",
-                color: "#FFD700",
+                display: { xs: "none", md: "block" },
                 fontFamily: '"Poppins", sans-serif',
+                fontWeight: 700,
+                fontSize: "0.8rem",
+                letterSpacing: "1px",
                 borderRadius: 0,
                 px: 3,
+                borderColor: "#C5A47E",
+                background:
+                  "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                transition: "all 0.4s ease",
+                "&:hover": {
+                  borderColor: "#EAD2A8",
+                  transform: "scale(1.05)",
+                  boxShadow: "0 0 15px rgba(197, 164, 126, 0.2)",
+                },
               }}
             >
               SOU FUNDADOR
             </Button>
 
-            {/* ÍCONE HAMBÚRGUER (SÓ APARECE NO MOBILE) */}
             <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
               onClick={handleDrawerToggle}
-              sx={{ ml: 1, display: { md: "none" }, color: "#FFD700" }}
+              sx={{ ml: 1, display: { md: "none" } }}
             >
-              <MenuIcon />
+              <svg width={0} height={0} style={{ position: "absolute" }}>
+                <linearGradient
+                  id="gold-gradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop stopColor="#C5A47E" offset="0%" />
+                  <stop stopColor="#EAD2A8" offset="45%" />
+                  <stop stopColor="#C5A47E" offset="100%" />
+                </linearGradient>
+              </svg>
+
+              <MenuIcon
+                sx={{
+                  fontSize: "2rem",
+                  fill: "url(#gold-gradient)",
+                  transition: "0.3s",
+                  "&:hover": { transform: "scale(1.1)" },
+                }}
+              />
             </IconButton>
           </Box>
         </Toolbar>
       </Container>
 
-      {/* COMPONENTE DO MENU LATERAL */}
       <Drawer
         anchor="right"
         open={mobileOpen}

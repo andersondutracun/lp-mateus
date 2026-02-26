@@ -8,11 +8,10 @@ const Hero = () => {
         minHeight: "80vh",
         display: "flex",
         alignItems: "center",
-        pt: { xs: 15, md: 20 }, // Compensando a altura da Navbar
+        pt: { xs: 15, md: 20 },
         pb: { xs: 10, md: 15 },
         position: "relative",
         overflow: "hidden",
-        // Efeito de "Luz" mencionado no manual de ID Visual
         background:
           "radial-gradient(circle at center, rgba(197, 164, 126, 0.08) 0%, rgba(5, 5, 5, 0) 70%)",
       }}
@@ -21,12 +20,15 @@ const Hero = () => {
         <Typography
           variant="overline"
           sx={{
-            color: "#C5A47E", // Dourado sóbrio/champanhe do manual
             fontFamily: '"Poppins", sans-serif',
-            fontWeight: 500,
-            letterSpacing: 4,
-            display: "block",
-            mb: 2,
+            fontStyle: "italic",
+            fontWeight: 600,
+            background:
+              "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            display: "inline-block",
+            filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.3))",
           }}
         >
           PRIME CLUB FUNDADOR 2026
@@ -35,23 +37,38 @@ const Hero = () => {
         <Typography
           variant="h1"
           sx={{
-            color: "#fff",
+            color: "#F2F2F2",
             fontFamily: '"IvyPresto", serif',
-            fontStyle: "italic", // REGRA DO MANUAL: Títulos sempre em itálico
+            fontStyle: "italic",
             fontWeight: 600,
             fontSize: { xs: "2.8rem", md: "4.5rem" },
             mb: 3,
             lineHeight: 1.1,
-            textTransform: "none", // Mantém a elegância da fonte
+            textTransform: "none",
           }}
         >
-          Estúdio <span style={{ color: "#C5A47E" }}>Inspire.se</span>
+          Estúdio{" "}
+          <span
+            style={{
+              fontFamily: '"IvyPresto", serif',
+              fontStyle: "italic",
+              fontWeight: 600,
+              background:
+                "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              display: "inline-block",
+              filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.3))",
+            }}
+          >
+            Inspire.se
+          </span>
         </Typography>
 
         <Typography
           variant="body1"
           sx={{
-            color: "rgba(255, 255, 255, 0.7)",
+            color: "#F2F2F2",
             fontFamily: '"Poppins", sans-serif',
             mb: 6,
             fontWeight: 400,
@@ -63,7 +80,7 @@ const Hero = () => {
           }}
         >
           O ponto de origem para quem compreendeu que
-          <strong style={{ color: "#fff", fontWeight: 600 }}>
+          <strong style={{ color: "#F2F2F2", fontWeight: 600 }}>
             {" "}
             presença estratégica{" "}
           </strong>
@@ -80,13 +97,18 @@ const Hero = () => {
             fontFamily: '"Poppins", sans-serif',
             fontWeight: 700,
             letterSpacing: "1.5px",
-            backgroundColor: "#C5A47E", // Cor institucional
+            background:
+              "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)",
             color: "#050505",
-            borderRadius: 0, // Minimalismo: Formas geométricas (conforme manual)
-            boxShadow: "none",
+            borderRadius: 0,
+            boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.3)",
+            border: "none",
+            transition: "transform 0.3s ease, boxShadow 0.3s ease",
             "&:hover": {
-              backgroundColor: "#b38f66",
-              boxShadow: "0 4px 20px rgba(197, 164, 126, 0.2)",
+              background:
+                "linear-gradient(135deg, #D6B68F 0%, #F5E6CC 45%, #D6B68F 100%)",
+              transform: "translateY(-2px)",
+              boxShadow: "0 8px 25px rgba(197, 164, 126, 0.4)",
             },
           }}
         >
