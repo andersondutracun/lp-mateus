@@ -14,6 +14,8 @@ import heroBg from "./assets/fundo.jpg";
 import Pricing from "./components/Pricing";
 import Mentor from "./components/Mentor";
 import Bonus from "./components/Bonus";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
 
 const inspireTheme = createTheme({
   palette: {
@@ -75,10 +77,12 @@ function App() {
         <Navbar />
         <Hero />
         <Mentor />
+        <Experience />
         <Features />
         <Pricing />
         <Bonus />
         <Faq />
+        <Contact />
 
         {/* Footer Simples */}
         <Box sx={{ py: 4, textAlign: "center", color: "#555" }}>

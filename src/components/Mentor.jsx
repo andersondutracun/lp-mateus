@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Typography, Stack } from "@mui/material";
-import imgEstudio from "../assets/mateus.jpg";
+import imgEstudio from "../assets/inspirese.jpg";
 
 const Mentor = () => {
   return (
