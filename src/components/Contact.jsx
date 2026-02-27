@@ -171,7 +171,7 @@ const Contact = () => {
                 border: "1px solid rgba(197, 164, 126, 0.4)",
                 position: "relative",
                 overflow: "hidden",
-                boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
+                boxShadow: "0 20px 40px rgba(0,0,0,0.7)",
                 // Filtro para o mapa ficar com visual "Dark/Gold"
                 filter:
                   "grayscale(1) invert(0.92) contrast(1.1) brightness(0.9)",
