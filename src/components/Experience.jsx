@@ -109,34 +109,43 @@ const ExperienceSlideshow = () => {
           TransitionComponent={Fade}
           PaperProps={{
             sx: {
-              backgroundColor: "rgba(5, 5, 5, 0.98)",
+              backgroundColor: "rgba(5, 5, 5, 0.98)", // Quase preto para foco total
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              overflow: "hidden", // Impede que o modal crie barra de rolagem
             },
           }}
         >
+          {/* Botão de Fechar com o tom Dourado */}
           <IconButton
             onClick={handleClose}
             sx={{
               position: "absolute",
-              top: 20,
-              right: 20,
+              top: { xs: 15, md: 25 }, // Mais perto do topo no mobile
+              right: { xs: 15, md: 25 },
               color: "#C5A47E",
               zIndex: 10,
+              bgcolor: "rgba(0,0,0,0.5)", // Fundo escuro para garantir contraste
+              "&:hover": { bgcolor: "rgba(197, 164, 126, 0.1)" },
             }}
           >
-            <CloseIcon sx={{ fontSize: "2.5rem" }} />
+            <CloseIcon sx={{ fontSize: { xs: "2rem", md: "2.5rem" } }} />
           </IconButton>
 
+          {/* IMAGEM COM LIMITAÇÃO DE TAMANHO */}
           <Box
             component="img"
             src={selectedImg}
             sx={{
-              maxWidth: "95%",
-              maxHeight: "90%",
-              objectFit: "contain",
+              // LIMITAÇÕES ESSENCIAIS PARA MOBILE:
+              maxWidth: { xs: "100%", md: "95%" }, // Ocupa toda a largura no mobile
+              maxHeight: { xs: "80vh", md: "90vh" }, // Limita a altura a 80% da tela do celular
+
+              objectFit: "contain", // Garante que a foto toda apareça sem cortes
               border: "1px solid rgba(197, 164, 126, 0.2)",
+              boxShadow: "0 0 50px rgba(0,0,0,0.8)",
+              p: { xs: 1, md: 0 }, // Leve padding para a foto não colar na borda no mobile
             }}
           />
         </Dialog>
