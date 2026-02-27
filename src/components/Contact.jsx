@@ -167,6 +167,7 @@ const Contact = () => {
             <Box
               sx={{
                 width: "100%",
+                minWidth: "600px",
                 height: { xs: "350px", md: "550px" }, // Altura maior no desktop
                 border: "1px solid rgba(197, 164, 126, 0.4)",
                 position: "relative",
