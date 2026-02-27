@@ -18,25 +18,23 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const navItems = ["O Estúdio", "Ecossistema", "Bônus", "FAQ"];
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  // Definição do Gradiente para reuso
+  const goldGradient =
+    "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)";
+
   const drawer = (
     <Box
-      sx={{
-        height: "100%",
-        backgroundColor: "#050505",
-        color: "#fff",
-        p: 3,
-      }}
+      sx={{ height: "100%", backgroundColor: "#050505", color: "#fff", p: 3 }}
     >
       <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 4 }}>
-        <IconButton onClick={handleDrawerToggle} sx={{ color: "#fff" }}>
-          <CloseIcon />
+        <IconButton onClick={handleDrawerToggle} sx={{ color: "#C5A47E" }}>
+          <CloseIcon fontSize="large" />
         </IconButton>
       </Box>
       <List>
@@ -50,8 +48,8 @@ const Navbar = () => {
                 primary={item}
                 primaryTypographyProps={{
                   fontFamily: '"Poppins", sans-serif',
-                  fontSize: "1.2rem",
-                  letterSpacing: "2px",
+                  fontSize: "1.1rem",
+                  letterSpacing: "1px",
                 }}
               />
             </ListItemButton>
@@ -63,23 +61,11 @@ const Navbar = () => {
         variant="contained"
         sx={{
           mt: 4,
-          background:
-            "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)",
+          background: goldGradient,
           color: "#050505",
           fontWeight: 700,
-          fontFamily: '"Poppins", sans-serif',
-          letterSpacing: "1px",
           borderRadius: 0,
           py: 2,
-          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.3)",
-          transition: "all 0.3s ease",
-          border: "none",
-          "&:hover": {
-            background:
-              "linear-gradient(135deg, #D6B68F 0%, #F5E6CC 45%, #D6B68F 100%)",
-            transform: "translateY(-2px)",
-            boxShadow: "0 6px 20px rgba(197, 164, 126, 0.3)",
-          },
         }}
       >
         SOU FUNDADOR
@@ -91,14 +77,19 @@ const Navbar = () => {
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: "rgba(5, 5, 5, 0.9)",
+        backgroundColor: "rgba(5, 5, 5, 0.95)",
         backdropFilter: "blur(10px)",
         boxShadow: "none",
-        borderBottom: "1px solid rgba(255, 215, 0, 0.1)",
+        borderBottom: "1px solid rgba(197, 164, 126, 0.2)",
+        // ISSO IMPEDE O SITE DE "BALANÇAR" PARA OS LADOS
+        left: 0,
+        right: 0,
+        width: "100%",
       }}
     >
       <Container maxWidth="lg">
-        <Toolbar sx={{ justifyContent: "space-between", px: "0 !important" }}>
+        {/* Removido o !important para permitir um respiro nas bordas no mobile */}
+        <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, sm: 0 } }}>
           <Typography
             variant="h6"
             sx={{
@@ -106,21 +97,26 @@ const Navbar = () => {
               fontStyle: "italic",
               fontWeight: 600,
               color: "#fff",
+              fontSize: { xs: "1.2rem", md: "1.5rem" },
             }}
           >
             Inspire.se
           </Typography>
 
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4 }}>
+          {/* MENU DESKTOP */}
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
             {navItems.map((item) => (
               <Button
                 key={item}
                 sx={{
                   color: "rgba(255,255,255,0.7)",
                   fontFamily: '"Poppins", sans-serif',
-                  fontSize: "0.85rem",
+                  fontSize: "0.8rem",
+                  letterSpacing: "1px",
                   "&:hover": {
-                    color: "#FFD700",
+                    background: goldGradient,
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
                     backgroundColor: "transparent",
                   },
                 }}
@@ -130,59 +126,39 @@ const Navbar = () => {
             ))}
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            {/* BOTÃO DESKTOP */}
             <Button
               variant="outlined"
               sx={{
                 display: { xs: "none", md: "block" },
                 fontFamily: '"Poppins", sans-serif',
                 fontWeight: 700,
-                fontSize: "0.8rem",
-                letterSpacing: "1px",
+                fontSize: "0.75rem",
                 borderRadius: 0,
                 px: 3,
                 borderColor: "#C5A47E",
-                background:
-                  "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                transition: "all 0.4s ease",
+                color: "#C5A47E", // Cor sólida para evitar bugs de renderização no contorno
+                transition: "0.3s",
                 "&:hover": {
                   borderColor: "#EAD2A8",
-                  transform: "scale(1.05)",
-                  boxShadow: "0 0 15px rgba(197, 164, 126, 0.2)",
+                  backgroundColor: "rgba(197, 164, 126, 0.05)",
                 },
               }}
             >
               SOU FUNDADOR
             </Button>
 
+            {/* ÍCONE MOBILE CORRIGIDO */}
             <IconButton
               onClick={handleDrawerToggle}
-              sx={{ ml: 1, display: { md: "none" } }}
+              sx={{
+                ml: 1,
+                display: { md: "none" },
+                color: "#C5A47E", // Cor direta no componente para evitar que o SVG suma
+              }}
             >
-              <svg width={0} height={0} style={{ position: "absolute" }}>
-                <linearGradient
-                  id="gold-gradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop stopColor="#C5A47E" offset="0%" />
-                  <stop stopColor="#EAD2A8" offset="45%" />
-                  <stop stopColor="#C5A47E" offset="100%" />
-                </linearGradient>
-              </svg>
-
-              <MenuIcon
-                sx={{
-                  fontSize: "2rem",
-                  fill: "url(#gold-gradient)",
-                  transition: "0.3s",
-                  "&:hover": { transform: "scale(1.1)" },
-                }}
-              />
+              <MenuIcon sx={{ fontSize: "2.2rem" }} />
             </IconButton>
           </Box>
         </Toolbar>
@@ -192,9 +168,8 @@ const Navbar = () => {
         anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
-        ModalProps={{ keepMounted: true }}
         PaperProps={{
-          sx: { width: "80%", maxWidth: "300px", backgroundColor: "#050505" },
+          sx: { width: "280px", backgroundColor: "#050505" },
         }}
       >
         {drawer}
