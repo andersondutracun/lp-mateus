@@ -3,13 +3,14 @@ import imgEstudio from "../assets/inspirese.jpg";
 
 const Mentor = () => {
   return (
-    <Box sx={{ py: { xs: 10, md: 15 }, backgroundColor: "transparent" }}>
+    <Box
+      id="estudio"
+      sx={{ py: { xs: 10, md: 15 }, backgroundColor: "transparent" }}
+    >
       <Container maxWidth="lg">
         <Grid container spacing={8} alignItems="center">
-          {/* LADO DA IMAGEM COM MOLDURA GEOMÉTRICA (Conforme Manual) */}
           <Grid item xs={12} md={6}>
             <Box sx={{ position: "relative" }}>
-              {/* Moldura decorativa atrás da imagem */}
               <Box
                 sx={{
                   position: "absolute",
@@ -29,8 +30,8 @@ const Mentor = () => {
                 alt="Estúdio Inspire.se"
                 sx={{
                   width: "100%",
-                  borderRadius: 0, // Formas retas e modernas do manual
-                  filter: "grayscale(20%)", // Toque de sobriedade
+                  borderRadius: 0,
+                  filter: "grayscale(20%)",
                   position: "relative",
                   zIndex: 1,
                   border: "1px solid rgba(255, 255, 255, 0.1)",
@@ -39,7 +40,6 @@ const Mentor = () => {
             </Box>
           </Grid>
 
-          {/* LADO DO CONTEÚDO TEXTUAL */}
           <Grid item xs={12} md={6}>
             <Typography
               variant="overline"
@@ -58,7 +58,7 @@ const Mentor = () => {
               sx={{
                 color: "#fff",
                 fontFamily: '"IvyPresto", serif',
-                fontStyle: "italic", // Obrigatório pelo manual para títulos
+                fontStyle: "italic",
                 fontWeight: 600,
                 fontSize: { xs: "2.2rem", md: "3rem" },
                 mb: 3,
@@ -95,7 +95,6 @@ const Mentor = () => {
                   key={item}
                   sx={{ display: "flex", alignItems: "center", gap: 2 }}
                 >
-                  {/* Marcador quadrado/geométrico conforme manual */}
                   <Box
                     sx={{
                       width: 6,

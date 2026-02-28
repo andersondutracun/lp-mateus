@@ -24,6 +24,7 @@ const Contact = () => {
 
   return (
     <Box
+      id="contact"
       sx={{
         py: 12,
         bgcolor: "transparent",
@@ -32,7 +33,6 @@ const Contact = () => {
     >
       <Container maxWidth="lg">
         <Grid container spacing={8}>
-          {/* LADO ESQUERDO: DADOS DE CONTATO */}
           <Grid item xs={12} md={5}>
             <Typography
               variant="overline"
@@ -54,7 +54,6 @@ const Contact = () => {
             </Typography>
 
             <Stack spacing={4}>
-              {/* Endereço */}
               <Box sx={{ display: "flex", gap: 2 }}>
                 <LocationOnIcon sx={{ color: "#C5A47E" }} />
                 <Box>
@@ -77,7 +76,6 @@ const Contact = () => {
                 </Box>
               </Box>
 
-              {/* WhatsApp */}
               <Box sx={{ display: "flex", gap: 2 }}>
                 <WhatsAppIcon sx={{ color: "#C5A47E" }} />
                 <Box>
@@ -105,7 +103,6 @@ const Contact = () => {
                 </Box>
               </Box>
 
-              {/* E-mail */}
               <Box sx={{ display: "flex", gap: 2 }}>
                 <EmailIcon sx={{ color: "#C5A47E" }} />
                 <Box>
@@ -132,7 +129,6 @@ const Contact = () => {
                 </Box>
               </Box>
 
-              {/* Instagram */}
               <Box sx={{ display: "flex", gap: 2 }}>
                 <InstagramIcon sx={{ color: "#C5A47E" }} />
                 <Box>
@@ -162,13 +158,12 @@ const Contact = () => {
             </Stack>
           </Grid>
 
-          {/* LADO DIREITO: MAPA COM FILTRO DARK */}
           <Grid item xs={12} md={7}>
             <Box
               sx={{
                 width: "100%",
-                minWidth: "600px",
-                height: { xs: "350px", md: "550px" }, // Altura maior no desktop
+                minWidth: { xs: "100%", md: "600px" },
+                height: { xs: "350px", md: "550px" },
                 border: "1px solid rgba(197, 164, 126, 0.4)",
                 position: "relative",
                 overflow: "hidden",

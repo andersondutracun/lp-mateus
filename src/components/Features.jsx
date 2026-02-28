@@ -29,7 +29,7 @@ const features = [
 
 const Features = () => {
   return (
-    <Box sx={{ py: 12, backgroundColor: "transparent" }}>
+    <Box id="ecossistema" sx={{ py: 12, backgroundColor: "transparent" }}>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography
@@ -48,7 +48,7 @@ const Features = () => {
             sx={{
               color: "#fff",
               fontFamily: '"IvyPresto", serif',
-              fontStyle: "italic", // Identidade Inspire.se
+              fontStyle: "italic",
               fontWeight: 600,
               mt: 1,
             }}
@@ -66,8 +66,8 @@ const Features = () => {
                   p: 4,
                   height: "100%",
                   minHeight: "300px",
-                  borderRadius: 0, // Mantendo o minimalismo geométrico do manual
-                  borderLeft: "2px solid #C5A47E", // Detalhe lateral elegante
+                  borderRadius: 0,
+                  borderLeft: "2px solid #C5A47E",
                   backgroundColor: "rgba(255, 255, 255, 0.03)",
                   transition: "0.4s ease",
                   display: "flex",

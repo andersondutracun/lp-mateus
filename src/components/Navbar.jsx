@@ -18,13 +18,36 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const navItems = ["O Estúdio", "Ecossistema", "Bônus", "FAQ"];
+
+  const navItems = [
+    { label: "O Estúdio", id: "estudio" },
+    { label: "Ecossistema", id: "ecossistema" },
+    { label: "Bônus", id: "bonus" },
+    { label: "FAQ", id: "faq" },
+    { label: "Contato", id: "contact" },
+  ];
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  // Definição do Gradiente para reuso
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Altura aproximada da navbar para não cobrir o título
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+    if (mobileOpen) setMobileOpen(false);
+  };
+
   const goldGradient =
     "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)";
 
@@ -39,13 +62,13 @@ const Navbar = () => {
       </Box>
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.id} disablePadding>
             <ListItemButton
               sx={{ textAlign: "center", py: 2 }}
-              onClick={handleDrawerToggle}
+              onClick={() => scrollToSection(item.id)}
             >
               <ListItemText
-                primary={item}
+                primary={item.label}
                 primaryTypographyProps={{
                   fontFamily: '"Poppins", sans-serif',
                   fontSize: "1.1rem",
@@ -59,6 +82,7 @@ const Navbar = () => {
       <Button
         fullWidth
         variant="contained"
+        onClick={() => scrollToSection("precos")}
         sx={{
           mt: 4,
           background: goldGradient,
@@ -68,7 +92,7 @@ const Navbar = () => {
           py: 2,
         }}
       >
-        SOU FUNDADOR
+        QUERO SER UM FUNDADOR
       </Button>
     </Box>
   );
@@ -81,55 +105,53 @@ const Navbar = () => {
         backdropFilter: "blur(10px)",
         boxShadow: "none",
         borderBottom: "1px solid rgba(197, 164, 126, 0.2)",
-        // ISSO IMPEDE O SITE DE "BALANÇAR" PARA OS LADOS
         left: 0,
         right: 0,
         width: "100%",
       }}
     >
       <Container maxWidth="lg">
-        {/* Removido o !important para permitir um respiro nas bordas no mobile */}
         <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, sm: 0 } }}>
           <Typography
             variant="h6"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             sx={{
               fontFamily: '"IvyPresto", serif',
               fontStyle: "italic",
               fontWeight: 600,
               color: "#fff",
               fontSize: { xs: "1.2rem", md: "1.5rem" },
+              cursor: "pointer",
             }}
           >
             Inspire.se
           </Typography>
 
-          {/* MENU DESKTOP */}
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
             {navItems.map((item) => (
               <Button
-                key={item}
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
                 sx={{
                   color: "rgba(255,255,255,0.7)",
                   fontFamily: '"Poppins", sans-serif',
                   fontSize: "0.8rem",
                   letterSpacing: "1px",
                   "&:hover": {
-                    background: goldGradient,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
+                    color: "#C5A47E",
                     backgroundColor: "transparent",
                   },
                 }}
               >
-                {item}
+                {item.label}
               </Button>
             ))}
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            {/* BOTÃO DESKTOP */}
             <Button
               variant="outlined"
+              onClick={() => scrollToSection("precos")}
               sx={{
                 display: { xs: "none", md: "block" },
                 fontFamily: '"Poppins", sans-serif',
@@ -138,7 +160,7 @@ const Navbar = () => {
                 borderRadius: 0,
                 px: 3,
                 borderColor: "#C5A47E",
-                color: "#C5A47E", // Cor sólida para evitar bugs de renderização no contorno
+                color: "#C5A47E",
                 transition: "0.3s",
                 "&:hover": {
                   borderColor: "#EAD2A8",
@@ -146,17 +168,12 @@ const Navbar = () => {
                 },
               }}
             >
-              SOU FUNDADOR
+              QUERO SER UM FUNDADOR
             </Button>
 
-            {/* ÍCONE MOBILE CORRIGIDO */}
             <IconButton
               onClick={handleDrawerToggle}
-              sx={{
-                ml: 1,
-                display: { md: "none" },
-                color: "#C5A47E", // Cor direta no componente para evitar que o SVG suma
-              }}
+              sx={{ ml: 1, display: { md: "none" }, color: "#C5A47E" }}
             >
               <MenuIcon sx={{ fontSize: "2.2rem" }} />
             </IconButton>

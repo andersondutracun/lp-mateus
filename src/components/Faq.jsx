@@ -38,7 +38,10 @@ const questions = [
 
 const Faq = () => {
   return (
-    <Box sx={{ width: "100%", py: 12, backgroundColor: "transparent" }}>
+    <Box
+      id="faq"
+      sx={{ width: "100%", py: 12, backgroundColor: "transparent" }}
+    >
       <Container maxWidth="md">
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography

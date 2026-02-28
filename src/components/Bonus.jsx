@@ -20,7 +20,7 @@ const Bonus = () => {
   ];
 
   return (
-    <Box sx={{ py: 12, backgroundColor: "transparent" }}>
+    <Box id="bonus" sx={{ py: 12, backgroundColor: "transparent" }}>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography

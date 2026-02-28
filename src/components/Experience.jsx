@@ -21,11 +21,10 @@ const ExperienceSlideshow = () => {
   const [open, setOpen] = useState(false);
   const [selectedImg, setSelectedImg] = useState("");
 
-  // Gerando os 37 slides dinamicamente a partir da raiz /public
   const slides = Array.from({ length: 37 }, (_, i) => {
     const id = i + 1;
     return {
-      img: `/${id}.jpg`, // Como está no /public, o Vite serve na raiz '/'
+      img: `/${id}.jpg`,
       title: "Estúdio Inspire.se",
       desc: "Posicionamento e construção de autoridade com padrão elevado de imagem.",
     };
@@ -39,7 +38,7 @@ const ExperienceSlideshow = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <Box sx={{ py: 10, bgcolor: "#050505" }}>
+    <Box id="fotos" sx={{ py: 10, bgcolor: "#050505" }}>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: 6 }}>
           <Typography
@@ -67,7 +66,6 @@ const ExperienceSlideshow = () => {
             height: { xs: "400px", md: "600px" },
             border: "1px solid rgba(197, 164, 126, 0.3)",
             cursor: "zoom-in",
-            // Customização das setas para o tom dourado
             "& .swiper-button-next, & .swiper-button-prev": {
               color: "#C5A47E",
             },
@@ -101,7 +99,6 @@ const ExperienceSlideshow = () => {
           </Swiper>
         </Box>
 
-        {/* MODAL LIGHTBOX */}
         <Dialog
           fullScreen
           open={open}
@@ -109,43 +106,40 @@ const ExperienceSlideshow = () => {
           TransitionComponent={Fade}
           PaperProps={{
             sx: {
-              backgroundColor: "rgba(5, 5, 5, 0.98)", // Quase preto para foco total
+              backgroundColor: "rgba(5, 5, 5, 0.98)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              overflow: "hidden", // Impede que o modal crie barra de rolagem
+              overflow: "hidden",
             },
           }}
         >
-          {/* Botão de Fechar com o tom Dourado */}
           <IconButton
             onClick={handleClose}
             sx={{
               position: "absolute",
-              top: { xs: 15, md: 25 }, // Mais perto do topo no mobile
+              top: { xs: 15, md: 25 },
               right: { xs: 15, md: 25 },
               color: "#C5A47E",
               zIndex: 10,
-              bgcolor: "rgba(0,0,0,0.5)", // Fundo escuro para garantir contraste
+              bgcolor: "rgba(0,0,0,0.5)",
               "&:hover": { bgcolor: "rgba(197, 164, 126, 0.1)" },
             }}
           >
             <CloseIcon sx={{ fontSize: { xs: "2rem", md: "2.5rem" } }} />
           </IconButton>
 
-          {/* IMAGEM COM LIMITAÇÃO DE TAMANHO */}
           <Box
             component="img"
             src={selectedImg}
             sx={{
-              // LIMITAÇÕES ESSENCIAIS PARA MOBILE:
-              maxWidth: { xs: "100%", md: "95%" }, // Ocupa toda a largura no mobile
-              maxHeight: { xs: "80vh", md: "90vh" }, // Limita a altura a 80% da tela do celular
+              maxWidth: { xs: "100%", md: "95%" },
+              maxHeight: { xs: "80vh", md: "90vh" },
 
-              objectFit: "contain", // Garante que a foto toda apareça sem cortes
+              objectFit: "contain",
               border: "1px solid rgba(197, 164, 126, 0.2)",
               boxShadow: "0 0 50px rgba(0,0,0,0.8)",
-              p: { xs: 1, md: 0 }, // Leve padding para a foto não colar na borda no mobile
+              p: { xs: 1, md: 0 },
             }}
           />
         </Dialog>

@@ -24,6 +24,9 @@ const plans = [
     ],
     buttonText: "SABER MAIS",
     highlight: false,
+    // Link personalizado para o Plano Essencial
+    whatsappLink:
+      "https://wa.me/5531972573795?text=Olá! Gostaria de saber mais informações sobre o Plano Essencial do Estúdio.",
   },
   {
     title: "Plano Elite",
@@ -40,12 +43,21 @@ const plans = [
     buttonText: "GARANTIR VAGA (RESTAM POUCAS)",
     highlight: true,
     scarcity: "LIMITE MÁXIMO DE 25 PARTICIPANTES",
+    // Link personalizado para o Plano Elite
+    whatsappLink:
+      "https://wa.me/5531972573795?text=Olá! Quero garantir minha vaga como Membro Fundador Elite 2026.",
   },
 ];
 
 const Pricing = () => {
+  const goldGradient =
+    "linear-gradient(135deg, #C5A47E 0%, #EAD2A8 45%, #C5A47E 100%)";
+
   return (
-    <Box sx={{ py: 12, backgroundColor: "transparent" }}>
+    // id duplo para garantir que qualquer chamada (precos ou pricing) funcione
+    <Box id="pricing" sx={{ py: 12, backgroundColor: "transparent" }}>
+      <Box id="precos" sx={{ display: "none" }} />
+
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <Typography
@@ -89,12 +101,12 @@ const Pricing = () => {
                   display: "flex",
                   flexDirection: "column",
                   backgroundColor: plan.highlight
-                    ? "rgba(197, 164, 126, 0.05)" // Leve fundo champagne para o destaque
+                    ? "rgba(197, 164, 126, 0.05)"
                     : "rgba(255, 255, 255, 0.02)",
                   border: plan.highlight
                     ? "1px solid #C5A47E"
                     : "1px solid rgba(255, 255, 255, 0.1)",
-                  borderRadius: 0, // Geométrico conforme manual
+                  borderRadius: 0,
                   position: "relative",
                   transition: "0.4s ease",
                   "&:hover": {
@@ -185,7 +197,7 @@ const Pricing = () => {
                   <Typography
                     variant="caption"
                     sx={{
-                      color: "#FF4444", // Mantido para urgência, mas com fonte elegante
+                      color: "#FF4444",
                       fontFamily: '"Poppins", sans-serif',
                       fontWeight: 700,
                       mb: 2,
@@ -211,22 +223,29 @@ const Pricing = () => {
                 </Typography>
 
                 <Button
-                  variant={plan.highlight ? "contained" : "outlined"}
+                  variant="contained"
                   fullWidth
+                  component="a" // Transforma em Link
+                  href={plan.whatsappLink}
+                  target="_blank"
                   sx={{
                     py: 2,
                     fontFamily: '"Poppins", sans-serif',
                     fontWeight: 700,
                     letterSpacing: 1,
-                    backgroundColor: plan.highlight ? "#C5A47E" : "transparent",
+                    background: plan.highlight ? goldGradient : "transparent",
                     color: plan.highlight ? "#050505" : "#C5A47E",
-                    borderColor: "#C5A47E",
+                    border: plan.highlight ? "none" : "1px solid #C5A47E",
                     borderRadius: 0,
+                    transition: "all 0.3s ease",
                     "&:hover": {
-                      backgroundColor: plan.highlight
-                        ? "#b38f66"
+                      background: plan.highlight
+                        ? "linear-gradient(135deg, #D6B68F 0%, #F5E6CC 45%, #D6B68F 100%)"
                         : "rgba(197, 164, 126, 0.1)",
-                      borderColor: "#C5A47E",
+                      transform: "translateY(-3px)",
+                      boxShadow: plan.highlight
+                        ? "0 8px 20px rgba(197, 164, 126, 0.3)"
+                        : "none",
                     },
                   }}
                 >
