@@ -55,8 +55,8 @@ const Pricing = () => {
 
   return (
     // id duplo para garantir que qualquer chamada (precos ou pricing) funcione
-    <Box id="pricing" sx={{ py: 12, backgroundColor: "transparent" }}>
-      <Box id="precos" sx={{ display: "none" }} />
+    <Box id="precos" sx={{ py: 12, backgroundColor: "transparent" }}>
+      <Box sx={{ display: "none" }} />
 
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: 8 }}>
