@@ -20,7 +20,7 @@ const questions = [
       "É o núcleo exclusivo de membros fundadores (Plano Elite). Durante 6 meses, este grupo terá encontros mensais presenciais para networking estratégico e crescimento conectado dentro do ecossistema Inspire.se.",
   },
   {
-    pergunta: "Por que existem apenas 25 vagas para o Plano Elite?",
+    pergunta: "Por que existem apenas 25 vagas para o Plano Elite??",
     resposta:
       "Para garantir a qualidade das conexões e o foco no desenvolvimento de cada membro fundador. Após o preenchimento das 25 vagas, o acesso ao Plano Elite será encerrado até um novo ciclo futuro.",
   },
